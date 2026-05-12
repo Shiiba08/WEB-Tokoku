@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TokoKu Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+  <div class="mobile-overlay" id="mobile-overlay" onclick="toggleSidebar(false)"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="logo-area">
+      <div class="logo">TokoKu<span>MANAGEMENT</span></div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item active" onclick="navigate('home')">🏠 Beranda</div>
+      <div class="nav-item" onclick="navigate('login')">🔐 Login</div>
+      <div class="nav-item" onclick="showProducts()">📦 Produk</div>
+      <div class="nav-item" onclick="showTransactions()">💳 Transaksi</div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar" id="sidebar-avatar">A</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-username">Admin</div>
+          <div class="user-role" id="sidebar-role">Administrator</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" onclick="toggleSidebar(true)">☰</button>
+      <div class="page-title">Dashboard</div>
+    </div>
+
+    <div class="content">
+
+      <div id="page-home" class="page active">
+        <h1>Selamat Datang di TokoKu</h1>
+        <p>Dashboard manajemen toko modern.</p>
+      </div>
+
+      <div id="page-login" class="page">
+        <h2>Login</h2>
+        <input type="text" id="login-user" placeholder="Username">
+        <input type="password" id="login-pass" placeholder="Password">
+        <button onclick="doLogin()">Masuk</button>
+      </div>
+
+      <div id="page-products" class="page">
+        <h2>Produk</h2>
+        <div id="product-grid"></div>
+      </div>
+
+      <div id="page-transactions" class="page">
+        <h2>Transaksi</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Pelanggan</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="trx-tbody"></tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
+
